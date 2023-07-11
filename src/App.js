@@ -16,11 +16,18 @@ function App() {
     setDarkMode((isDarkMode) => !isDarkMode);
   }
   
+// Nothing to update state and pass it down to ArticleList
+
+function handleNewPost(post) {
+  setPosts((prevPosts) => [...prevPosts, post]);              
+}
+
 
   useEffect(() => {
     fetch('http://localhost:3000/posts')
       .then(response => response.json())
       .then(posts => {setPosts(posts)});
+      // Write out logic 
       console.log(posts);
   }, []);
 
@@ -42,7 +49,7 @@ function App() {
             <h1>Contact</h1>
           </Route>
           <Route path="/ArticleList">
-            <ArticleList posts={posts}/>
+            <ArticleList posts={posts} handleNewPost={handleNewPost}/>
           </Route>
           <Route exact path="/">
             <Home/>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Article from './Article';
 
 
-function ArticleList({ posts, addNewPost }) {
+function ArticleList({ posts, handleNewPost }) {
   const [newArticle, setNewArticle] = useState({
     title: '',
     date: '',
@@ -30,11 +30,12 @@ function ArticleList({ posts, addNewPost }) {
       .then((response) => response.json())
       .then((createdPost) => {
 
-        // ------------------------------------------------------------ 
-    // addNewPost(createdPost);
+     
+    // addNewPost();
+    handleNewPost(createdPost)
 
 
-        // ------------------------------------------------------------
+   
         // Handle the response if needed
         console.log('New article created:', createdPost);
 
