@@ -16,7 +16,7 @@ function App() {
     setDarkMode((isDarkMode) => !isDarkMode);
   }
   
-// Nothing to update state and pass it down to ArticleList
+
 
 function handleNewPost(post) {
   setPosts((prevPosts) => [...prevPosts, post]);              
@@ -27,7 +27,7 @@ function handleNewPost(post) {
     fetch('http://localhost:3000/posts')
       .then(response => response.json())
       .then(posts => {setPosts(posts)});
-      // Write out logic 
+
       console.log(posts);
   }, []);
 

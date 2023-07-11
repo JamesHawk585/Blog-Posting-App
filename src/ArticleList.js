@@ -31,13 +31,10 @@ function ArticleList({ posts, handleNewPost }) {
       .then((createdPost) => {
 
      
-    // addNewPost();
+  
     handleNewPost(createdPost)
 
-
-   
-        // Handle the response if needed
-        console.log('New article created:', createdPost);
+    console.log('New article created:', createdPost);
 
         // Clear the form inputs
         setNewArticle({
@@ -84,7 +81,7 @@ function ArticleList({ posts, handleNewPost }) {
           title={post.title}
           date={post.date}
           preview={post.preview}
-        //   handleDelete={handleDeleteArticle}
+
         />
       ))}
     </main>
